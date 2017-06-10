@@ -1,7 +1,7 @@
 # Specify the main box to be used
 box:
-  id: maven
-  tag: 3.3-jdk-7
+  id: jcabezasg/vcheckerwercker
+  tag: latest
 
 build:
 
@@ -11,10 +11,5 @@ build:
        code: echo $PWD
     - script:
        name: Show current working folder 
-       code: chmod 777 VCheckerApp-0.0.1-SNAPSHOT-jar-wercker.jar
-    - script:
-       name: Show current working folder 
        code: ls -la
-    - script:
-       name: Show current working folder 
-       code: java -jar  VCheckerApp-0.0.1-SNAPSHOT-jar-wercker.jar config.json 
+
