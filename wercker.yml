@@ -22,3 +22,11 @@ build:
        name: Execute checker - After
        code: echo Ejecucion terminada
 
+after-steps:
+
+        - slack-notifier:
+            url: https://hooks.slack.com/services/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
+            channel: docker-build-tools
+            username: Javier Cabezas
+            
+
