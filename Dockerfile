@@ -1,6 +1,5 @@
-FROM maven:3.3-jdk-8
-
-MAINTAINER Javier Cabezas Gívica y Eugenio F. González Martín 
+FROM ubuntu:14.04
+MAINTAINER Javier Cabezas <jcabezasgivica@gmail.com> y Eugenio F. González <eugeniofidel@gmail.com>
 
 # Environment variable describing the repositories to be verified on : Github,Bower,NPN,Archiva and Maven
  
@@ -25,21 +24,16 @@ WORKDIR /usr/src/mymaven
 RUN chmod 777 $JAVAJAR
 
 # Updating packages
-
-RUN apt-get update
-
+# Installing Java
 # Installing NPM
-
-RUN apt-get install -y nodejs
-
-RUN apt-get install -y npm
-
 # Installing BOWER
 
-RUN npm install -g bower
+RUN sudo apt-get update \
+        && sudo apt-get -y install openjdk-7-jre-headless \
+        && sudo apt-get install -y nodejs \
+        && sudo apt-get install -y npm \
+        && sudo npm install -g bower
 
 # Creating the entrypoint for the Docker
 
 ENTRYPOINT java -jar $JAVAJAR $REPOSITORIES 
-
-
