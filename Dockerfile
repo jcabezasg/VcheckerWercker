@@ -17,12 +17,6 @@ COPY $PWD /usr/src/mymaven/
 
 WORKDIR /usr/src/mymaven
 
-#
-# Set up of required permissions to execute the jar file  
-#
-
-RUN chmod 777 $JAVAJAR
-
 # Updating packages
 # Installing Java
 # Installing NPM
@@ -34,6 +28,6 @@ RUN sudo apt-get update \
         && sudo apt-get install -y npm \
         && sudo npm install -g bower
 
-# Creating the entrypoint for the Docker
 
-ENTRYPOINT java -jar $JAVAJAR $REPOSITORIES 
+
+
