@@ -1,6 +1,6 @@
 # Specify the main box to be used
 box:
-  id: chequeador
+  id: jcabezasg/vcheckerwercker
   tag: latest
 
 build:
